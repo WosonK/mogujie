@@ -501,22 +501,22 @@ $(document).ready(function(){
 	$(".show_login").click(function(){
 		window.location.href = "login.html"
 	});
-	var usernames = JSON.parse($.cookie("users"));
+	// var usernames = JSON.parse($.cookie("users"));
 	
-	if(usernames){
-		var obj = usernames[usernames.length-1];
-		console.log(obj.name)
-		$(".show_register a").html("你好"+obj.name);
-		$(".show_register a").css({color:"red"});
-		$(".show_login a").html("退出登录");
-		$(".show_login a").click(function(e){
-			e.preventDefault();
-			$.cookie("users", "", {expires:0, path:"/"});
-		})
-	}else{
-		$(".show_login a").html("登录");
-		$(".show_register a").html("注册")
-	}
+	// if(usernames){
+	// 	var obj = usernames[usernames.length-1];
+	// 	console.log(obj.name)
+	// 	$(".show_register a").html("你好"+obj.name);
+	// 	$(".show_register a").css({color:"red"});
+	// 	$(".show_login a").html("退出登录");
+	// 	$(".show_login a").click(function(e){
+	// 		e.preventDefault();
+	// 		$.cookie("users", "", {expires:0, path:"/"});
+	// 	})
+	// }else{
+	// 	$(".show_login a").html("登录");
+	// 	$(".show_register a").html("注册")
+	// }
 	
 	
 	//返回顶部
