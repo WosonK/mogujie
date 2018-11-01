@@ -8,9 +8,9 @@
     <script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}"></script>
     <link href="{% static 'css/common.css' %}" rel="stylesheet" type="text/css"/>
     <link href="{% static 'css/mainPage.css' %}" rel="stylesheet" type="text/css"/>
-    {#		<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}" ></script>#}
-    {#		<script type="text/javascript" src="{% static 'js/mainPage.js' %}" ></script>#}
-    {#      <script type="text/javascript" src="{% static 'js/test.js' %}" ></script>#}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
+
 </head>
 <body>
 <!--置顶头部-->
@@ -37,6 +37,7 @@
             <li class="show_register">
                 <a href="{% url 'app:register' %}">注册</a>
             </li>
+            {#            #}
             <li class="show_login">
                 <a href="{% url 'app:login' %}">登录&nbsp;|</a>
             </li>
@@ -114,6 +115,7 @@
 <div class="banner">
     <div class="banner_container">
         <!--右侧导航-->
+
         <div class="primary_nav">
             <ul class="primary_nav_list">
                 <li class="primary_nav_li">
@@ -369,19 +371,17 @@
             </ul>
         </div>
         <div class="primary_main">
-            <div class="slide_pic">
-                <ul class="lunbo">
-
-                </ul>
-                <div class="cicrl">
-                    <div class="active"></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+            <div class="swiper-container" id="topSwiper">
+                <div class="swiper-wrapper">
+                    {% for wheel in wheels %}
+                        <div class="swiper-slide">
+                            <img src="/static/media/{{ wheel.img }}" alt="{{ wheel.name }}">
+                        </div>
+                    {% endfor %}
                 </div>
-                <div id="left">&lt;</div>
-                <div id="right">&gt;</div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                {#            </div>#}
             </div>
             <div class="banner_fr">
                 <ul class="sale_list">
@@ -602,6 +602,11 @@
         </a>
     </div>
 </div>
+<script src="{% static 'js/mainPage.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery.cookie.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/swiper.js' %}"></script>
 <script type="text/javascript" class="autoinsert" src="{% static 'js/jquery-1.2.6.min.js' %}"></script>
 <script src="{% static 'js/snowfall.jquery.js' %}"></script>
 <script>
