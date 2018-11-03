@@ -70,6 +70,7 @@
 }
 
 .primary_nav .primary_nav_list .primary_nav_li {
+    height: 38px;
     position: relative;
     cursor: default;
     float: left;
@@ -196,36 +197,9 @@
 #topSwiper .swiper-pagination{
     bottom: 0px;
 }
-
-#left {
-    position: absolute;
-    width: 20px;
-    height: 50px;
-    background: #ccc;
-    left: 0;
-    top: 42%;
-    text-align: center;
-    line-height: 50px;
-    cursor: pointer;
-    font-size: 20px;
-    color: white;
-}
-
-#right {
-    position: absolute;
-    width: 20px;
-    height: 50px;
-    background: #ccc;
-    right: 0;
-    top: 42%;
-    text-align: center;
-    line-height: 50px;
-    cursor: pointer;
-    font-size: 20px;
-    color: white;
-}
-
 /*轮播样式结束*/
+
+
 /*团购样式*/
 .wrapper {
     width: 100%
@@ -374,20 +348,6 @@
     color: #fff;
 }
 
-.pro_brand_fl .look {
-    position: absolute;
-    bottom: 0;
-    width: 140px;
-    height: 36px;
-    margin: 0 58px 20px;
-    border-radius: 50%;
-    background: #fff;
-    font-size: 14px;
-    line-height: 36px;
-    text-align: center;
-    color: rgb(133, 82, 50);
-}
-
 .pro_brand_mid_fl img {
     width: 255px;
     height: 336px;
@@ -463,12 +423,27 @@
     color: #855232;
 }
 
-.pro_brand_fr .fr-box {
+.pro_brand_fr_left {
     width: 172px;
-    height: 168px;
+    height: 336px;
+    overflow: hidden;
+    float: left;
+}
+
+.pro_brand_fr_right {
+    width: 172px;
+    height: 336px;
+    overflow: hidden;
+    float: left;
+}
+
+.pro_brand_fr .fr-box {
+    width: 171px;
+    height: 167px;
     overflow: hidden;
     position: relative;
-    float: left;
+    /*float: left;*/
+    /*z-index: auto;*/
 }
 
 .pro_brand_fr .fr-box img {
@@ -481,9 +456,9 @@
 
 .pro_brand_fr .fr-box .title {
     position: absolute;
-    bottom: 17px;
+    bottom: 10px;
     width: 100%;
-    height: 20px;
+    height: 19px;
     font-size: 14px;
     text-align: center;
 }
@@ -568,14 +543,14 @@
 }
 
 .each_box {
-    width: 220px;
+    width: 18%;
     height: 405px;
     margin: 0 20px 50px 0;
     float: left;
 }
 
 .each_box img {
-    width: 220px;
+    width: 100%;
     height: 330px;
     cursor: pointer;
 }
@@ -592,7 +567,7 @@
 }
 
 .each_box div {
-    width: 220px;
+    width: 100%;
     height: 25px;
     cursor: pointer;
 }

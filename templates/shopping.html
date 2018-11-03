@@ -11,13 +11,13 @@
 	<body>
 		<div class="header">
 			<div class="header-con">
-				<a href="#" class="home-fl">蘑菇街首页</a>
+				<a href="{% url 'app:index' %}" class="home-fl">蘑菇街首页</a>
 				<ul class="nav_list">
 					<li class="show_register">
-						<a href="#">注册</a>
+						<a href="{% url 'app:register' %}">注册</a>
 					</li>
 					<li class="show_login">
-						<a href="#">登录&nbsp;|</a>
+						<a href="{% url 'app:login' %}">登录&nbsp;|</a>
 					</li>
 					<li class="myorder">
 						<img src="../static/img/top_nav2.jpg" alt="" />
@@ -119,7 +119,7 @@
 		<!--尾部-->
 		<div class="footer">
 			<p class="copyright">
-				<a href="#">蘑菇街</a>|
+				<a href="{% url 'app:index' %}">蘑菇街</a>|
 				<a href="#">加入开放平台</a>|
 				&copy;2016Mogujie.com,All RightS Reserve.
 			</p>

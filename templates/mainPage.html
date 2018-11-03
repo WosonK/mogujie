@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>买衣服  先逛蘑菇街</title>
     <script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}"></script>
     <link href="{% static 'css/common.css' %}" rel="stylesheet" type="text/css"/>
     <link href="{% static 'css/mainPage.css' %}" rel="stylesheet" type="text/css"/>
@@ -37,18 +37,17 @@
             <li class="show_register">
                 <a href="{% url 'app:register' %}">注册</a>
             </li>
-            {#            #}
+            {#          #}
             <li class="show_login">
                 <a href="{% url 'app:login' %}">登录&nbsp;|</a>
             </li>
             <li class="myorder">
                 <img src="{% static 'img/top_nav2.jpg' %}" alt=""/>
-                <a href="#">我的订单&nbsp;|</a>
+                <a href="{% url 'app:shopping' %}">我的订单&nbsp;|</a>
             </li>
             <li class="shoppingcar">
                 <img src="{% static 'img/top_car.jpg' %}" alt="" style="width:14px; height: 14px;"/>
-                <a href="#">购物车&nbsp;|</a>
-                <div class="empty_cart">购物车里没有商品</div>
+                <a href="{% url 'app:shopping' %}">购物车&nbsp;|</a>
             </li>
             <li class="customer_service">
                 <a href="#">客户服务&nbsp;|</a>
@@ -392,6 +391,7 @@
         </div>
     </div>
 </div>
+<!--团购-->
 <div class="wrapper">
     <div class="tuangou">
         <div class="con_fl">
@@ -414,70 +414,311 @@
 <!--产品展示内容-->
 <div class="pro_logo_container">
     <div class="pro_brand">
-        <div class="pro_brand_fl">
-            <div class="look">去看看</div>
-        </div>
-        <div class="pro_brand_mid">
-            <div class="pro_brand_mid_fl"></div>
-            <div class="pro_brand_mid_fr">
-                <div class="mid_fr_top"></div>
-                <div class="mid_fr_bottom"></div>
-            </div>
-        </div>
-        <div class="pro_brand_fr"></div>
+        {% for bs1 in brands1 %}
+            {% if bs1.bid == 1 %}
+                <div class="pro_brand_fl">
+                    {#                    <div class="look">去看看</div>#}
+                    <div class="title">{{ bs1.title }}</div>
+                    {#                    <div class="description">{{ bs1.desciption }}</div>#}
+                    <img src="/static/media/{{ bs1.img }}" alt="">
+                </div>
+            {% elif  bs1.bid == 2 %}
+                <div class="pro_brand_mid">
+                    <div class="pro_brand_mid_fl">
+                        <div class="title">{{ bs1.title }}</div>
+                        {#                        <div class="description">{{ bs1.desciption }}</div>#}
+                        <img src="/static/media/{{ bs1.img }}" alt="">
+                    </div>
+
+                    <div class="pro_brand_mid_fr">
+                        {% elif bs1.bid == 3 %}
+                        <div class="mid_fr_top">
+                            <div class="title">{{ bs1.title }}</div>
+                            {#                        <div class="description">{{ bs1.desciption }}</div>#}
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 4 %}
+                        <div class="mid_fr_bottom">
+                            <div class="title">{{ bs1.title }}</div>
+                            {#                          <div class="description">{{ bs1.desciption }}</div>#}
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="pro_brand_fr">
+                    <div class="pro_brand_fr_left">
+                        {% elif bs1.bid == 5 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 6 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                    <div class="pro_brand_fr_right">
+                        {% elif bs1.bid == 7 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 8 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
     <div class="pro_brand">
-        <div class="pro_brand_fl">
-            <div class="look">去看看</div>
-        </div>
-        <div class="pro_brand_mid">
-            <div class="pro_brand_mid_fl"></div>
-            <div class="pro_brand_mid_fr">
-                <div class="mid_fr_top"></div>
-                <div class="mid_fr_bottom"></div>
-            </div>
-        </div>
-        <div class="pro_brand_fr"></div>
+        {% for bs1 in brands1 %}
+            {% if bs1.bid == 1 %}
+                <div class="pro_brand_fl">
+                    {#                    <div class="look">去看看</div>#}
+                    <div class="title">{{ bs1.title }}</div>
+                    {#                    <div class="description">{{ bs1.desciption }}</div>#}
+                    <img src="/static/media/{{ bs1.img }}" alt="">
+                </div>
+            {% elif  bs1.bid == 2 %}
+                <div class="pro_brand_mid">
+                    <div class="pro_brand_mid_fl">
+                        <div class="title">{{ bs1.title }}</div>
+                        {#                        <div class="description">{{ bs1.desciption }}</div>#}
+                        <img src="/static/media/{{ bs1.img }}" alt="">
+                    </div>
+
+                    <div class="pro_brand_mid_fr">
+                        {% elif bs1.bid == 3 %}
+                        <div class="mid_fr_top">
+                            <div class="title">{{ bs1.title }}</div>
+                            {#                        <div class="description">{{ bs1.desciption }}</div>#}
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 4 %}
+                        <div class="mid_fr_bottom">
+                            <div class="title">{{ bs1.title }}</div>
+                            {#                          <div class="description">{{ bs1.desciption }}</div>#}
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="pro_brand_fr">
+                    <div class="pro_brand_fr_left">
+                        {% elif bs1.bid == 5 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 6 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                    <div class="pro_brand_fr_right">
+                        {% elif bs1.bid == 7 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 8 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
     <div class="pro_brand">
-        <div class="pro_brand_fl">
-            <div class="look">去看看</div>
-        </div>
-        <div class="pro_brand_mid">
-            <div class="pro_brand_mid_fl"></div>
-            <div class="pro_brand_mid_fr">
-                <div class="mid_fr_top"></div>
-                <div class="mid_fr_bottom"></div>
-            </div>
-        </div>
-        <div class="pro_brand_fr"></div>
+        {% for bs1 in brands1 %}
+            {% if bs1.bid == 1 %}
+                <div class="pro_brand_fl">
+                    {#                    <div class="look">去看看</div>#}
+                    <div class="title">{{ bs1.title }}</div>
+                    {#                    <div class="description">{{ bs1.desciption }}</div>#}
+                    <img src="/static/media/{{ bs1.img }}" alt="">
+                </div>
+            {% elif  bs1.bid == 2 %}
+                <div class="pro_brand_mid">
+                    <div class="pro_brand_mid_fl">
+                        <div class="title">{{ bs1.title }}</div>
+                        {#                        <div class="description">{{ bs1.desciption }}</div>#}
+                        <img src="/static/media/{{ bs1.img }}" alt="">
+                    </div>
+
+                    <div class="pro_brand_mid_fr">
+                        {% elif bs1.bid == 3 %}
+                        <div class="mid_fr_top">
+                            <div class="title">{{ bs1.title }}</div>
+                            {#                        <div class="description">{{ bs1.desciption }}</div>#}
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 4 %}
+                        <div class="mid_fr_bottom">
+                            <div class="title">{{ bs1.title }}</div>
+                            {#                          <div class="description">{{ bs1.desciption }}</div>#}
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="pro_brand_fr">
+                    <div class="pro_brand_fr_left">
+                        {% elif bs1.bid == 5 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 6 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                    <div class="pro_brand_fr_right">
+                        {% elif bs1.bid == 7 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 8 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
     <div class="pro_brand">
-        <div class="pro_brand_fl">
-            <div class="look">去看看</div>
-        </div>
-        <div class="pro_brand_mid">
-            <div class="pro_brand_mid_fl"></div>
-            <div class="pro_brand_mid_fr">
-                <div class="mid_fr_top"></div>
-                <div class="mid_fr_bottom"></div>
-            </div>
-        </div>
-        <div class="pro_brand_fr"></div>
+        {% for bs1 in brands1 %}
+            {% if bs1.bid == 1 %}
+                <div class="pro_brand_fl">
+                    {#                    <div class="look">去看看</div>#}
+                    <div class="title">{{ bs1.title }}</div>
+                    {#                    <div class="description">{{ bs1.desciption }}</div>#}
+                    <img src="/static/media/{{ bs1.img }}" alt="">
+                </div>
+            {% elif  bs1.bid == 2 %}
+                <div class="pro_brand_mid">
+                    <div class="pro_brand_mid_fl">
+                        <div class="title">{{ bs1.title }}</div>
+                        {#                        <div class="description">{{ bs1.desciption }}</div>#}
+                        <img src="/static/media/{{ bs1.img }}" alt="">
+                    </div>
+
+                    <div class="pro_brand_mid_fr">
+                        {% elif bs1.bid == 3 %}
+                        <div class="mid_fr_top">
+                            <div class="title">{{ bs1.title }}</div>
+                            {#                        <div class="description">{{ bs1.desciption }}</div>#}
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 4 %}
+                        <div class="mid_fr_bottom">
+                            <div class="title">{{ bs1.title }}</div>
+                            {#                          <div class="description">{{ bs1.desciption }}</div>#}
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="pro_brand_fr">
+                    <div class="pro_brand_fr_left">
+                        {% elif bs1.bid == 5 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 6 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                    <div class="pro_brand_fr_right">
+                        {% elif bs1.bid == 7 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 8 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
     <div class="pro_brand">
-        <div class="pro_brand_fl">
-            <div class="look">去看看</div>
-        </div>
-        <div class="pro_brand_mid">
-            <div class="pro_brand_mid_fl"></div>
-            <div class="pro_brand_mid_fr">
-                <div class="mid_fr_top"></div>
-                <div class="mid_fr_bottom"></div>
-            </div>
-        </div>
-        <div class="pro_brand_fr"></div>
+        {% for bs1 in brands1 %}
+            {% if bs1.bid == 1 %}
+                <div class="pro_brand_fl">
+                    {#                    <div class="look">去看看</div>#}
+                    <div class="title">{{ bs1.title }}</div>
+                    {#                    <div class="description">{{ bs1.desciption }}</div>#}
+                    <img src="/static/media/{{ bs1.img }}" alt="">
+                </div>
+            {% elif  bs1.bid == 2 %}
+                <div class="pro_brand_mid">
+                    <div class="pro_brand_mid_fl">
+                        <div class="title">{{ bs1.title }}</div>
+                        {#                        <div class="description">{{ bs1.desciption }}</div>#}
+                        <img src="/static/media/{{ bs1.img }}" alt="">
+                    </div>
+
+                    <div class="pro_brand_mid_fr">
+                        {% elif bs1.bid == 3 %}
+                        <div class="mid_fr_top">
+                            <div class="title">{{ bs1.title }}</div>
+                            {#                        <div class="description">{{ bs1.desciption }}</div>#}
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 4 %}
+                        <div class="mid_fr_bottom">
+                            <div class="title">{{ bs1.title }}</div>
+                            {#                          <div class="description">{{ bs1.desciption }}</div>#}
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="pro_brand_fr">
+                    <div class="pro_brand_fr_left">
+                        {% elif bs1.bid == 5 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 6 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                    <div class="pro_brand_fr_right">
+                        {% elif bs1.bid == 7 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                        {% elif bs1.bid == 8 %}
+                        <div class="fr-box">
+                            <div class="title">{{ bs1.title }}</div>
+                            <img src="/static/media/{{ bs1.img }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
+
 </div>
 <!--猜你喜欢-->
 <div class="guessLike">
@@ -488,7 +729,36 @@
 <!--产品列表-->
 <div class="product_container">
     <ul class="content">
-
+        {% for good in goods %}
+            <li class="each_box">
+                <img src="/static/media/{{ good.img }}" alt="">
+                <p>{{ good.name }}</p>
+                <div>
+                    <b>{{ good.price }}</b>
+                    <span>{{ good.sales }}</span>
+                </div>
+            </li>
+        {% endfor %}
+                {% for good in goods %}
+            <li class="each_box">
+                <img src="/static/media/{{ good.img }}" alt="">
+                <p>{{ good.name }}</p>
+                <div>
+                    <b>{{ good.price }}</b>
+                    <span>{{ good.sales }}</span>
+                </div>
+            </li>
+        {% endfor %}
+        {% for good in goods %}
+            <li class="each_box">
+                <img src="/static/media/{{ good.img }}" alt="">
+                <p>{{ good.name }}</p>
+                <div>
+                    <b>{{ good.price }}</b>
+                    <span>{{ good.sales }}</span>
+                </div>
+            </li>
+        {% endfor %}
     </ul>
 </div>
 <!--尾部-->
@@ -573,7 +843,7 @@
     <div class="blank_div"></div>
     <!--购物车-->
     <div class="my_cart" style="left: 0px;">
-        <a href="#">
+        <a href="{% url 'app:shopping' %}">
             <div class="s-txt">购物车</div>
         </a>
     </div>
@@ -607,32 +877,5 @@
 <script src="{% static 'js/jquery.cookie.js' %}"></script>
 <script src="{% static 'js/bootstrap.js' %}"></script>
 <script src="{% static 'js/swiper.js' %}"></script>
-<script type="text/javascript" class="autoinsert" src="{% static 'js/jquery-1.2.6.min.js' %}"></script>
-<script src="{% static 'js/snowfall.jquery.js' %}"></script>
-<script>
-    $(document).snowfall('clear');
-    $(document).snowfall({
-        image: "{% static 'img/huaban.png' %}",
-        flakeCount: 80,
-        minSize: 5,
-        maxSize: 25,
-        round: false,
-        shadow: false,
-        minSpeed: 5,
-        maxSpeed: 10,
-    });
-    // 该插件的参数有：
-    // flakeCount|number 雪花数量
-    // flakeColor|#RGB 雪花颜色
-
-    // minSize|number 雪花最小体积
-    // maxSize|number 雪花最大体积
-    // minSpeed|number 雪花最小速度
-    // maxSpeed|number 雪花最大速度
-    // round|boolean true雪花圆形|false方形(笑哭)
-    // shadow|boolean true雪花有阴影|false无阴影
-    // image|url 雪花图片
-
-</script>
 </body>
 </html>

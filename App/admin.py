@@ -1,6 +1,7 @@
 from django.contrib import admin
-
-# Register your models here.
-from App.models import Wheel
+from App.models import Wheel, Brand, Users, Goods
 
 admin.site.register(Wheel)
+admin.site.register(Brand)
+admin.site.register(Users)
+admin.site.register(Goods)

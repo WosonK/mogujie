@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -5,8 +7,8 @@
 		<title></title>
 		<script type="text/javascript" src="../static/js/jquery-1.12.3.js" ></script>
 		<link href="../static/css/details.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="../static/js/details.js" ></script>
-		<script type="text/javascript" src="../static/js/jquery.cookie.js" ></script>
+		<script type="text/javascript" src="{% static 'js/details.js' %}" ></script>
+		<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}" ></script>
 	</head>
 	<body class=".media_screen_1200">
 		<!--右边导航栏-->
@@ -14,7 +16,7 @@
 			<div class="blank_div"></div>
 			<!--购物车-->
 			<div class="my_cart" style="left: 0px;">
-				<a href="#">
+				<a href="{% url 'app:shopping' %}">
 					<div class="s-txt">购物车</div>
 				</a>
 			</div>
