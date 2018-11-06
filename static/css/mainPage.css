@@ -560,6 +560,7 @@
     color: #000;
     font-size: 12px;
     margin: 0;
+    /*text-decoration: none;*/
 }
 
 .each_box p:hover {

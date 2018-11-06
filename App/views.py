@@ -25,8 +25,29 @@ def register(request):
     return render(request, 'register.html')
 
 
-def detail(request):
-    return render(request, 'productDetail.html')
+def detail(request, trackid):
+    temp = Goods.objects.filter(trackid=trackid)
+    exact = temp[0]
+
+    smallImg = exact.smallImg
+    name = exact.name
+    price = exact.price
+    oldprice = exact.oldprice
+    sales = exact.sales
+    store = exact.store
+    bg = exact.bg
+
+    data = {
+        'smallImg': smallImg,
+        'name': name,
+        'price': price,
+        'oldprice': oldprice,
+        'sales': sales,
+        'store': store,
+        'bg': bg,
+    }
+
+    return render(request, 'productDetail.html', context=data)
 
 
 def shoping(request):

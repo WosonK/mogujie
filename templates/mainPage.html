@@ -731,18 +731,12 @@
     <ul class="content">
         {% for good in goods %}
             <li class="each_box">
-                <img src="/static/media/{{ good.img }}" alt="">
-                <p>{{ good.name }}</p>
-                <div>
-                    <b>{{ good.price }}</b>
-                    <span>{{ good.sales }}</span>
-                </div>
-            </li>
-        {% endfor %}
-                {% for good in goods %}
-            <li class="each_box">
-                <img src="/static/media/{{ good.img }}" alt="">
-                <p>{{ good.name }}</p>
+                <a href="{% url 'app:detail' good.trackid %}">
+                    <img src="/static/media/{{ good.img }}" alt="">
+                </a>
+                <a style="text-decoration: none" href="{% url 'app:detail' good.trackid %}">
+                    <p>{{ good.name }}</p>
+                </a>
                 <div>
                     <b>{{ good.price }}</b>
                     <span>{{ good.sales }}</span>
@@ -751,8 +745,26 @@
         {% endfor %}
         {% for good in goods %}
             <li class="each_box">
-                <img src="/static/media/{{ good.img }}" alt="">
-                <p>{{ good.name }}</p>
+                <a href="{% url 'app:detail' good.trackid %}">
+                    <img src="/static/media/{{ good.img }}" alt="">
+                </a>
+                <a style="text-decoration: none" href="{% url 'app:detail' good.trackid %}">
+                    <p>{{ good.name }}</p>
+                </a>
+                <div>
+                    <b>{{ good.price }}</b>
+                    <span>{{ good.sales }}</span>
+                </div>
+            </li>
+        {% endfor %}
+        {% for good in goods %}
+            <li class="each_box">
+                <a href="{% url 'app:detail' good.trackid %}">
+                    <img src="/static/media/{{ good.img }}" alt="">
+                </a>
+                <a style="text-decoration: none" href="{% url 'app:detail' good.trackid %}">
+                    <p>{{ good.name }}</p>
+                </a>
                 <div>
                     <b>{{ good.price }}</b>
                     <span>{{ good.sales }}</span>
