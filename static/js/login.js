@@ -1,43 +1,44 @@
-$(document).ready(function(){
-	//登录方式切换
-	$(".loginpic").click(function(){
-		$(".login-content").hide();
-		$(".-hidden").show();
-	});
-	$(".tonormal").click(function(){
-		$(".-hidden").hide();
-		$(".login-content").show();
-	});
-	//页面跳转
-	$(".header a img").click(function(){
-		window.location.href = "mainPage.html";
-	});
-	$(".newUser").click(function(){
-		window.location.href = "register.html";
-	});
-	
-	$(".loginBtn").click(function(){
-		//读取cookie
-		var users = $.cookie("users")
-		console.log(users);
-		if(users){
-			users = JSON.parse(users); //cookie中的所有注册过的用户
-			//console.log(users);[Object, Object]
- 			var isExists = false; //表示是否存在该用户
- 			for(var i =0;i<users.length;i++){
- 				if(users[i].name == $(".login_name").val()&&users[i].pwd == $(".login_pwd").val()){
- 					alert("登录成功！");
-					window.location.href = "mainPage.html"
- 					isExists = true;
- 				}
- 			}
- 			if(!isExists){
- 				console.log("用户名或密码错误, 请重新输入!")
- 			}
-		}
-		else{
-			console.log("不存在用户, 请先注册!");
-		}
-	})
-	
+$(function () {
+    $('.loginBtn').on('click', function () {
+        temp1 = checkingName()
+        temp2 = checkingPassword()
+        if ( temp1 && temp2 ){
+            $('.login-content form').submit()
+        }
+    })
+
+    function checkingName() {
+        // 数字、字母
+        var reg = /^[A-Za-z0-9]+$/
+        var nameInput = $('#name input')
+        if (reg.test(nameInput.val())) {  // 符合
+            $('#name i').html('')
+            $('#name').removeClass('has-error').addClass('has-success')
+            $('#name span').removeClass('glyphicon-remove').addClass('glyphicon-ok')
+
+            return true
+        } else {    // 不符合
+            $('#name i').html('账号由数字、字母组成')
+            $('#name').removeClass('has-success').addClass('has-error')
+            $('#name span').removeClass('glyphicon-ok').addClass('glyphicon-remove')
+            return false
+        }
+    }
+
+    function checkingPassword() {
+        // 数字
+        var reg = /^[\d]{6,12}$/
+        var passwordInput = $('#password input')
+        if (reg.test(passwordInput.val())) {  // 符合
+            $('#password i').html('')
+            $('#password').removeClass('has-error').addClass('has-success')
+            $('#password span').removeClass('glyphicon-remove').addClass('glyphicon-ok')
+            return true
+        } else {    // 不符合
+            $('#password i').html('6~12位纯数字')
+            $('#password').removeClass('has-success').addClass('has-error')
+            $('#password span').removeClass('glyphicon-ok').addClass('glyphicon-remove')
+            return false
+        }
+    }
 })

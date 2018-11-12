@@ -46,6 +46,10 @@
     height: 528px;
 }
 
+.serbtn{
+    float: right;
+}
+
 .banner_fr .sale_list .sale_li {
     width: 180px;
     height: 243px;

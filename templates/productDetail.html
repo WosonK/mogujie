@@ -54,11 +54,11 @@
 						<a href="{% url 'app:register' %}">注册</a>
 					</li>
 					<li class="show_login">
-						<a href="{% url 'app:login' %}">登录&nbsp;|</a>
+						<a href="{% url 'app:login' %}">{{ name }}&nbsp;|</a>
 					</li>
 					<li class="myorder">
 						<img src="{% static 'img/top_nav2.jpg' %}" alt="" />
-						<a href="{% url 'app:shopping' %}">我的订单&nbsp;|</a>
+						<a href="{% url 'app:myorders' %}">我的订单&nbsp;|</a>
 					</li>
 					<li class="shoppingcar">
 						<img src="{% static 'img/top_car.jpg' %}" alt="" style="width:14px; height: 14px;" />
@@ -320,14 +320,16 @@
 						</div>
 						<div class="count">
 							<span>数量：</span>
+
 							<span class="minus"></span>
 							<input type="text" value="1" class="countnum"/>
 							<span class="plus"></span>
+
 							<span class="store">库存<b class="storenum">{{ store }}</b>件</span>
 						</div>
 						<div class="btn">
-							<a href="#" class="buynow">立刻购买</a>
-							<a href="#" class="addtocart">加入购物车</a>
+							<a href="{% url 'app:shopping' %}" class="buynow">立刻购买</a>
+                            <button class="addtocart" goodsid="{{ id }}">加入购物车</button>
 						</div>
 						<div class="share">
 							<div class="sharenum">

@@ -47,21 +47,16 @@
 	height: 400px;
 	margin: 0 auto;
 }
-.name,.pwd,.checked{
-	width:300px;
+
+.form-group{
+    width: 300px;
 	height: 30px;
 	margin-top: 20px;
 	border-color: white;
 }
-.register{
-	width:300px;
-	height: 30px;
-	border-radius: 5px;
-	background: #f36;
-	margin-top: 20px;
-	color: white;
-	font-size: 14px;
-}
+
+
+
 .wrapper p{
 	font-size: 13px;
 	margin-top: 20px;
@@ -70,13 +65,18 @@
 	cursor: pointer;
 	text-decoration: underline;
 }
+
 .wrapper .toLogin{
 	float: right;
-	margin-top: 20PX;
+	margin-bottom: 20PX;
 	color: #666;
 }
+.wrapper i{
+    font-size: 0.6rem;
+    color: red;
+}
 .bottom{
-	width: 100%;
+	width: 300px;
 	height: 200px;
 	background: url(../img/back.jpg);
 }
@@ -142,6 +142,5 @@
 	text-align: center;
 	color: #999;
 	border-top: 1px dashed #dcdcdc;
-	height: 40px;
 	line-height: 40px;
 }
