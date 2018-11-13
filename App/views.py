@@ -9,6 +9,7 @@ from App.models import Wheel, Brand, Goods, User, Cart, Order, OrderGoods
 
 
 def index(request):
+    #
     token = request.session.get('token')
 
     wheels = Wheel.objects.all()
@@ -26,7 +27,9 @@ def index(request):
         data['name'] = user.name
         data['isLogin'] = 1
 
-    else:  # 未登录
+    elif request.session.get('name'):# 未登录,14天内保持登录
+        data['name'] = request.session.get('name')
+    elif not request.session.get('name'):# 未登录,logout
         data['name'] = '未登录'
 
     return render(request, 'mainPage.html', context=data)
